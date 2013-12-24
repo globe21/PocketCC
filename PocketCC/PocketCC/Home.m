@@ -8,6 +8,7 @@
 
 #import "Home.h"
 
+
 @interface Home ()
 
 @end
@@ -33,6 +34,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction) clickSocial:(id)sender     //method in .m file
+{
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                         pathForResource:@"Birthday"
+                                         ofType:@"mp3"]];
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [audioPlayer play];
+}
+
+- (IBAction)goToWiki:(id)sender {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.wikipedia.org"]];
+
 }
 
 @end
